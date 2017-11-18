@@ -1,0 +1,38 @@
+{
+  "name": "koa-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.28.1",
+    "crypto": "^1.0.1",
+    "flash": "^1.1.0",
+    "fs": "0.0.1-security",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-csrf": "^3.0.6",
+    "koa-favicon": "^2.0.0",
+    "koa-logger": "^3.1.0",
+    "koa-passport": "^4.0.1",
+    "koa-router": "^7.2.1",
+    "koa-session": "^5.5.1",
+    "koa-static": "^4.0.1",
+    "mongoose": "^4.13.4",
+    "passport-local": "^1.0.0",
+    "passport-session": "^1.0.2",
+    "path": "^0.12.7",
+    "pug": "^2.0.0-rc.4",
+    "static": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0"
+  }
+}
