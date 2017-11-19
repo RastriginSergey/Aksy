@@ -13,14 +13,27 @@ const userSchema = mongoose.Schema(
 			type: String,
 			required: 'Enter displayName',
 		},
+		deleted: Boolean,
 		passwordHash: {
 			type: String,
-			required: true
 		},
 		salt: {
 			type: String,
-			required: true
-		}
+		},
+		gender: {
+			type: String,
+			enum: {
+				values: ['male', 'female']
+			}
+		},
+		providers: [{
+			name: String,
+			nameId: {
+				type: String,
+				index: true
+			},
+			profile: {}
+		}]
 	},
 	{
 		timestamps: true

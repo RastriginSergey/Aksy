@@ -9,6 +9,7 @@ exports.init = app => app.use(async (ctx, next) => {
 		} else {
 			ctx.body = 'Error 500';
 			ctx.status = 500;
+			console.error(e.message, e.stack); //eslint-disable-line
 		}
 
 	}

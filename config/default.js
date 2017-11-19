@@ -2,8 +2,12 @@ const defer = require('config/defer').deferConfig;
 const path = require('path');
 
 module.exports = {
+	secret: 'mySecretBlabla',
 	PORT: 3000,
 	bdURL: 'mongodb://localhost/test',
+	server: {
+		siteHost: 'http://localhost:3000'
+	},
 	crypto: {
 		hash: {
 			length: 128,
@@ -17,5 +21,15 @@ module.exports = {
 			return path.join(cfg.root, 'templates');
 		})
 	},
-	root: process.cwd()
+	root: process.cwd(),
+	providers: {
+		facebook: {
+			appId: 126165151413304,
+			appSecret: 'f8c30d8e572d65d9ae6f2275155ed6c4',
+			passportOptions: {
+				display: 'popup',
+				scope: ['email']
+			}
+		}
+	}
 };

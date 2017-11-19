@@ -7,6 +7,7 @@ const mongooseSession = require('./mongoose-session');
 const bodyParser = require('./bodyParser');
 const passport = require('./passport-init');
 const flash = require('./flash');
+const csrf = require('./csrf');
 
 exports.init = (app) => {
 	favicon.init(app);
@@ -18,4 +19,5 @@ exports.init = (app) => {
 	bodyParser.init(app);
 	passport.init(app);
 	flash.init(app);
+	csrf.init(app);
 };

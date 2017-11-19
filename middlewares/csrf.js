@@ -1,10 +1,10 @@
-const CSRF = require('koa-csrf');
+const csrf = require('koa2-csrf').default;
 
-exports.init = app => app.use(new CSRF({
-	invalidSessionSecretMessage: 'Invalid session secret',
-	invalidSessionSecretStatusCode: 403,
+exports.init = app => app.use(csrf({
+	invalidStatusCode: 403,
 	invalidTokenMessage: 'Invalid CSRF token',
-	invalidTokenStatusCode: 403,
-	excludedMethods: ['GET', 'HEAD', 'OPTIONS'],
-	disableQuery: false
+	ignoreMethods: [ 'GET', 'HEAD','OPTIONS' ],
+	ignorePaths: [],
+	secretLength: 16,
+	saltRounds: 10
 }));

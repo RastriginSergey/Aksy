@@ -1,21 +1,25 @@
-const Router = require('koa-router')
-const router = new Router()
-const authCtrl = require('./controllers/auth')
-const baseCtrl = require('./controllers/base')
-const userCtrl = require('./controllers/user')
+const Router = require('koa-router');
+const router = new Router();
+const {auth, base, user, facebook} = require('./controllers');
 
-router.get('/', baseCtrl.renderWelcome)
-router.get('/users/:id', userCtrl.getUser)
-router.get('/users', userCtrl.getUsers)
-router.get('/signin', authCtrl.renderSignin)
-router.get('/signup', authCtrl.renderSignup)
+router.get('/', base.renderWelcome);
+router.get('/users/:id', user.getUser);
+router.get('/users', user.getUsers);
+router.get('/signin', auth.renderSignin);
+router.get('/signup', auth.renderSignup);
 
-router.post('/signin', authCtrl.signin)
-router.post('/signup', authCtrl.signup)
-router.post('/logout', authCtrl.logout)
+// Facebook
+router.get('/login/facebook', facebook.authenticate);
+router.get('/connect/facebook', facebook.authorize);
+router.get('/oauth/facebook', facebook.oauth);
 
-router.patch('/users/:id', userCtrl.updateUser)
+// Local auth
+router.post('/signin', auth.signin);
+router.post('/signup', auth.signup);
+router.post('/logout', auth.logout);
 
-router.delete('/users/:id', userCtrl.deleteUser)
+router.patch('/users/:id', user.updateUser);
 
-exports.init = app => app.use(router.routes())
+router.delete('/users/:id', user.deleteUser);
+
+exports.init = app => app.use(router.routes());

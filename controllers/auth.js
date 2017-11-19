@@ -12,15 +12,14 @@ const auth = {
 	},
 
 	async signin(ctx, next) {
-
 		await passport.authenticate('local', {
 			successRedirect: '/',
-			failureRedirect: '/signin'
+			failureRedirect: '/signin',
+			failureFlash: true
 		})(ctx, next);
 	},
 
 	async signup(ctx) {
-
 		try {
 			const {email, displayName, password} = ctx.request.body;
 			const user = await User.create({
@@ -38,6 +37,7 @@ const auth = {
 
 	async logout(ctx) {
 		await ctx.logout();
+		ctx.session = null;
 		ctx.redirect('/signin');
 	}
 };

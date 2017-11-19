@@ -2,7 +2,10 @@ extends layout
 
 block content
 
-    p You are logged in.
+  h1 Welcome, #{user.displayName}
 
-    form(action="/logout" method="post")
-        button.btn.btn-primary(type="submit") Logout
+  p You are logged in.
+
+  form(action="/logout" method="post")
+    input(type='hidden', name='_csrf', value=csrf)
+    button.btn.btn-primary(type="submit") Logout
