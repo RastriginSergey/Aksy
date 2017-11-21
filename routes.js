@@ -18,6 +18,9 @@ router.post('/signin', auth.signin);
 router.post('/signup', auth.signup);
 router.post('/logout', auth.logout);
 
+// verify email
+router.get('/verify-email/:verifiedToken', auth.verify);
+
 router.patch('/users/:id', user.updateUser);
 
 router.delete('/users/:id', user.deleteUser);

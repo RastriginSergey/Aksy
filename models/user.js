@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 const config = require('config');
+const beautifyUnique = require('mongoose-beautiful-unique-validation');
 
 const userSchema = mongoose.Schema(
 	{
@@ -19,6 +20,14 @@ const userSchema = mongoose.Schema(
 		},
 		salt: {
 			type: String,
+		},
+		verified: {
+			type: Boolean,
+			required: true
+		},
+		verifiedToken: {
+			type: String,
+			required: true
 		},
 		gender: {
 			type: String,
@@ -39,6 +48,8 @@ const userSchema = mongoose.Schema(
 		timestamps: true
 	}
 );
+
+userSchema.plugin(beautifyUnique);
 
 userSchema.virtual('password')
 	.set(function (password) {

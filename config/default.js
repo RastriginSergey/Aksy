@@ -31,5 +31,13 @@ module.exports = {
 				scope: ['email']
 			}
 		}
+	},
+	smtp: {
+		host: 'smtp.yandex.ru',
+		port: 465,
+		secure: true,
+		name: 'Sergey Rastrigin',
+		user: 'SRastrigin@yandex.ru',
+		password: 'Hfcnhbuby4'
 	}
 };
