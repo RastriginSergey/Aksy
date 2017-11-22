@@ -11,4 +11,4 @@ database.connect();
 middleware.init(app);
 router.init(app);
 
-app.listen(config.PORT);
+app.listen(config.PORT, config.HOST);

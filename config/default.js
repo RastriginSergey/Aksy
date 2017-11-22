@@ -3,7 +3,8 @@ const path = require('path');
 
 module.exports = {
 	secret: 'mySecretBlabla',
-	PORT: 3000,
+	PORT: process.env.PORT,
+	HOST: process.env.HOST,
 	bdURL: 'mongodb://localhost/test',
 	server: {
 		siteHost: 'http://localhost:3000'
